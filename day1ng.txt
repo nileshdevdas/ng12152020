@@ -1,0 +1,338 @@
+1. Visual Studio Code 
+	a) Typescript --> Javascript
+	b) Angular  Supprot 
+
+2. Node 12.x  + npm  (Dependency Manager ) for your node application 
+
+3.  angular CLI->  Command Line Interface 9.1.12 (Stable Edition) 
+
+4.  Chrome / Edge ---> Internet Explorer  (Sunset) 11 
+
+5.  Internet Connection (Access websites) 
+	npmjs.org 
+
+===================================================================== 
+1. Is my browser a Server ? 
+	Server---> 
+
+browser ----> Server ----> HTML + Server SIde Scription (PHP/JSP/ASP/.....) 
+
+		<html>
+			<?php echo($username) ?>
+	Renders on the server side : 
+	a) Huge Memory 
+	b) Non Interactive-> 
+
+AJAX ---> Build Your own mercedez ? Who will maintain -> 
+is my browser a programming playground  ? 
+----------------------------------------------------------------------------------------------------------------------------------------
+Where does your application Run ? 
+MOdern Browser : Firefox / Chrome / Edge (Chromium)
+
+I want the  Data ---> 
+<div id=""  class=""> /parent / child (DOM) 
+Document Object Model (Manipulate) 
+Code --->   Replace the Values 
+<div> </div>
+<Div></div> 
+<Div></div>
+<div><div>
+
+JSON : --- JSON 
+	{}
+	{
+
+	}
+
+	[]
+
+	{
+		"users" : [ {
+	
+		}]
+	}
+
+
+
+
+
+Is my Browser a Server ? 
+
+
+WHat is Word  SPA (Single Page Applications) 
+
+the main page Loads (Index.html) ----> Build the whole framework 
+React
+Vue
+Angular 
+
+ANything --->
+index.html ----> Load the Whole framework 
+
+init (Again) 
+Losing your current ---> All the component --> Framework will be reinitialized 
+f5 -> reboot SPA 
+
+	init()=---> Stoarge in your memory ---> 
+
+a) Route ----> Clicking the links #! bang URL 
+b) Within the page 
+
+What is is CLient Side MVC ? 
+Model  / View  / Controller 
+
+
+
+Browsers only Support Javascript as the programming language 
+But ANgular is written in typscript --> Tranpiled to JavaScript -> 
+MVC ---> 
+
+a) Javascript does not support Data TYpe
+b) Type script give me (Transpiler) 
+	String 
+
+Typescirpt ---> Object Oriented Javascript
+
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+npm : package.json  (WHat is my role ) ? 
+
+What is package.json !!!! 
+
+
+a) My browser is a server ---> Application Can run on the client side Browser 
+b) My Server is support only JAvascript as a programming language 
+c) My Controlelrs My Models my View ---> Work on the client side --> JSON Data 
+	comes from the api ---> AJAX (HTTP) Calls 
+d) i do typescript but i get Javascirpt 
+e) i do program with node but run with Browser (Angular) 
+f) What angular ---runs on the browser is javascript 
+g) package.json is dependency management (Downloads and shareble cofiguration) 
+	about dependencies --> php (composer) 
+h) The final part that SPA ---> 
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+npm install -g 
+
+global install 
+
+a) Tools 
+	ng (angular) 
+	create-react-app 
+	Tools globally ---> Creates apps 
+
+	npm install -g nameof the tool : 
+
+b) Libraries 
+	npm install bootstrap 
+	So now what we need is a tool 
+
+ng angular/cli is tool    -g 
+
+# this install the angular cli in your machone 
+# so that you can ng new / ng serve / ng build / ng test / ng e2e  / ng bla bla 
+// if this command is complete it install the angular cli in your machine 
+
+npm install -g @angular/cli@9.1.12 
+
+# how do i test it that angular cli got installed : 
+
+ng version 
+
+# how do i create a new angular project 
+
+
+# what does the angular project Create ? 
+	|---------package.json 
+	|---------angular.json 
+	|---------src(Code) Angular Code 
+	|-------- node_modules
+	|-------- index.html (SPA Page) 
+	|-------- .gitignore 
+	|---------readme.md 
+	|--------- xxxx (others)
+
+# this is what we are going to make a use of a command 
+	ng new <youappname> 
+	
+	ng new imdbngapp
+
+	A) create a folder imdbngapp
+	B) inside the folder it will create the angular scafolding 
+	C) inside folder it will npm install (download) all dependencies 
+	D) inside the folder it will also create (Certain Configuration) 
+
+
+
+
+
+FaQ : 
+
+1. How to create a angular app 
+
+npm install -g @angular/cli@9.1.12 
+
+
+ng new  <appname> 
+
+ng new imdbngapp 
+
+How launch the Ng Application in dev mode 
+
+ng serve -o  --port <port> 
+
+ng serve -o 
+
+
+2.  the build is the production : 
+	ng build  --prod --aot 
+
+
+
+Augury is the client side angular Developers Assistant 
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
