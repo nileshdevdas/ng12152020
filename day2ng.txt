@@ -1,0 +1,200 @@
+How is angular built up 
+
+index.html 
+   -> <app-root></app-root>
+
+
+	|-------app-root  (Root Component)
+		|--------HelloWorld 
+			|-------X1
+			|------X2 
+
+
+	|----- app-root 
+		|----- Header
+		|------- Dynamically Decide the component (Based Routing)
+		|------Footer
+
+     Home  |   Products | Movies | Reviews | XYZ 
+
+
+@Component({
+    selector : 'app-xyz'
+})
+class XYZ {
+
+
+
+}
+
+	<app-root>
+	</app-root>
+
+
+1. What is Component (Class) 
+2. What is directive (Class) 
+3. What is Service  (Class)
+4. INterceptor (Class) 
+5. Gaurd  Class 
+6. Model  Class 
+
+Decorators   @Component @Pipe @Module @Injectible 
+Type script Class --- 
+
+
+@Component({
+     selector : 'app-login', 
+     templateUrl :  'login.component.html ', 
+     styleUrls : [ 'login.component.css' ]
+})
+class LoginComponent {
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+do i have a typescript compiler/Transpiler in my machien 
+
+1. Do i have type script 
+	where tsc 
+
+2. npm install -g  typescript@<version> 
+
+
+
+a) Write  a Type script file 
+	its extention must be .ts 
+
+b)  Write the contents for the file 
+
+
+
+
+
+a.  What a ts file can contain 
+
+	function xx(){
+	}
+
+
+	class xx {} 
+
+	# unless exported you cann use it in other files 
+
+b.   A class is like any other object oriented principal driven class 
+	a) contructor()
+	b) methods 
+	c) instance variables 
+	d) comments /// return type functions 
+	e) ! overloading 
+
+# sample script
+
+// typescript data types
+// declare constants 
+const USERNAME = 'nilesh';
+const PASSWORD = 'nilesh';
+
+// declare variable 
+let a: number = 1;
+let b: string = 'nilesh';
+let c: boolean = true;
+let d: null;
+
+// console output 
+console.log(a);
+console.log(b);
+console.log(c);
+console.log(d);
+
+// arrays
+let users = [1, 2, 3, 3, 4, 5];
+
+// json
+let mypassword = { 'name': 'username', 'password': 'password' };
+
+// for loops 
+for (let i = 0; i < 10; i++) {
+    console.log(i);
+}
+
+console.log(mypassword);
+// for each 
+users.forEach((each) => {
+    console.log(each);
+});
+
+let profits = 5;
+// while loops 
+while (profits <= 10) {
+    console.log('Low Profit');
+    profits = profits + 1;
+}
+
+function hello(){
+    console.log("This is a function .....k");
+}
+
+
+hello();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
