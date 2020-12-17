@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HeaderService } from '../header.service';
 
 @Component({
   selector: 'app-footer',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  constructor() { }
+  copyright = "Copyright Vinsys IT Service(I) Pvt. Ltd. 2020 "
+
+  constructor(public headerService: HeaderService) { }
 
   ngOnInit(): void {
   }

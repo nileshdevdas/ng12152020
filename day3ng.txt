@@ -1,0 +1,56 @@
+How is a component Written
+
+
+ng g c 
+
+@Component({
+    selector : 
+    templateUrl 
+    styles 
+})
+export class UserLogin implements OnInit , OnDestroy {
+
+	constructor(){
+	 // 1
+	}
+
+	onNgInit(){
+	 //2 
+	}
+}
+A componet 
+1. ts 
+2. html 
+3. css 
+
+<selector></selector>
+
+3 Components 
+header 
+footer 
+home 
++ root 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

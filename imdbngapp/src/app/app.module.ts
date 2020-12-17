@@ -1,5 +1,4 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { KatexModule } from 'ng-katex'
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms'
 import { AppRoutingModule } from './app-routing.module';
@@ -10,6 +9,7 @@ import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { MovielistComponent } from './movielist/movielist.component';
 import { MoviedetailsComponent } from './moviedetails/moviedetails.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -25,7 +25,7 @@ import { MoviedetailsComponent } from './moviedetails/moviedetails.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule, 
-    KatexModule
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
