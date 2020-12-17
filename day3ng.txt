@@ -30,6 +30,365 @@ header
 footer 
 home 
 + root 
+----------------------------------------
+We also discussed on the same implemntation 
+there are lot of interaction that should done between the page and component 
+	{{}}==> Output 
+		if you component has variable and you wish display it 
+		in the html {{varname}}
+	This supports OGNL (Object Graph Navigation Language ) 
+		a.b.c.d 
+	() (Event ) The idea is i want to fire or accept event :- 
+
+i wish to make use of a 2 variable in the   Controller.ts (Components ts) file 
+
+i expect it to work on the html page 
+
+Component : Pipes , Directives , Services, 
+
+{{}} -> Expression Binding 
+
+Where ever i want data to be displayed i use expression binding 
+Expression can be combined with  Pipes  
+
+{{var  | upercase }}
+
+[a]='demo'   attribute binding 
+[attribute]= ''
+
+A event binding in angular : 
+a) First WRite a Method in you control class .ts file 
+b) in you html decide the location of the event 
+	(submit) (click)
+
+
+
+1. LMS 
+2. Content 
+3. Ready Made course 
+
+A) It goes only vinsys banner 
+B) Domain or Subset existing 
+	Service --> 
+	Education-->
+
+
+
+1. Binding 
+
+from .ts -> html 
+	{{}}  []  
+
+from html ---> ts 
+	()
+	@ViewChild  with  # 
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+What is if two components needed to use the same data where will you keep the data ? 
+two or more component needed to use same business logic 
+	
+1)   {{}} from ts to html page
+2)   []  from ts to html attr
+3)  ()  from html ---> to ts  (Event) 
+4)  from  html ---> bind component to Ts @ViewChild("xxxx")  <tag #xxxx>
+
+------------------------------------------------------------------------------------------------------------------------------------------
+Description of the life cycle concept :- 
+when you page gets rendered :- 
+
+constructor is called on the component 
+onNgInit 
+afterViewInit 
+
+
+
+
+			1(Page Loading) .html
+				|
+			            ----------(Component's)
+				|
+			             constructor ----(Instance) 
+				|
+			            ngInit()---> This is giving a gurantee 
+				all dependency injection 
+				all the services injected 
+				the component has initialized (backend) 
+
+			           afterViewinit()
+				 | @ViewChild
+				 | your  Html Element renderers 
+				 || csss all has been loaded 
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+a) Can i write a component 
+b) do i know what a component is made up of 
+c) do i know the lifecycle of a component 
+d) do i know how to display data from component to html 
+e) do i know how to place a component on a page 
+f) do i know how to a component can handle events 
+g) do i know how to make my elements accisbile in the component @ViewChild 
+h) do i know that a component once place on the page is instance 
+i)  do i know the component has init/destroy afterViewInit --> where gurantees the 
+	call back that view has been renderd 
+j)  that every single component  is  a class 
+k)  a component has selector 
+l)   a component can be imported from some external libary (External modules) 
+m)  () --event [] attribute binding --> {{}}  expression  @ViewChild -> #
+-----------------------------------------------------------------------------------------------------------------------------------------------
+Services :- 
+Angualar Services are Classes 
+				             Singleton
+					       |
+			compo1 -----------------------comp2 ---------------------comp3
+
+
+Service is injectible --> DI COncept in angular :- 
+
+Angular --> Instatiates -->Scans and initatiates all your service ---> ()singletons 
+any component can use this service ---> a service is just class ---> But get instantiated 
+only once 
+
+
+how do i create a service --> 
+ng generate service  <servicename>
+ng g  s <serviceName>
+=========================================================================
+
+
+What is a service  : 
+a service is a class 
+a service is class and this class demarcates itself as service because i have 
+mentioned @Injectible({
+  providedIn : "root"
+})
+a service is always gonna be  singletons can be scope
+Single Per Session  ---> 
+
+
+
+
+
+
+How to create a service 
+
+@Injectible({
+	providedIn : 'xxx'
+})
+export class youclassname {
+	// your instance variables
+	constructor(){
+	}
+}
+
+Does a service get registered in the app.module.ts ---> NO
+
+When does the service get initialized by default the service is in lazy mode 
+if you define a service -> it will not get initilaized unless you inject it somewhere 
+
+
+How do i inject a service ---> 
+i inject a service -->  in a constructor 
+a component can inject a service 
+a service can inject a service 
+any class can inject a service ---> That is dependency injections 
+
+When you inject   (var : Type)
+and the rule Typescript if you dont have access modifier for the consturctor param 
+its  local variable the moment you make it with accesmodifier it becomes the 
+instance variable 
+
+make public if you wish to expose the variable to the html or outsied the class 
+and if you are using within the class then private 
+
+
+=======================================================================
+REST ---> GET / PUT / POST / HEAD / DELETE /OPTIONS / PATCH 
+get / read 
+put / update 
+post / create 
+head / check 
+delete / delete 
+options / inquire 
+patch  / merge 
+
+By default http is not enabled :- in the angular and it is your responsibility to add
+this module 
+Step 1: app.module.ts 
+Step 2 : import : [
+	other modules, 
+	HttpModule --> Http Module apis 
+]
+
+
+Lets inject the httpClient in our Service
+
+1. Mocky Service Define 
+2. Got the url 
+3. i used the api in my header service using the http client 
+4. in my header component i tol d the service to return the data to me 
+	getMenu() and i set the local variable 
+
+
+
+1.   app.module.ts 
+	import { HttpClientModule } from '@angular/common/http';
+ imports: [
+    HttpClientModule
+  ],
+
+2. import { HttpClient } from '@angular/common/http';
+
+ getMenu() {
+    return this.httpClient.get('https://run.mocky.io/v3/64323a8c-dd79-499b-b3bd-638d93fb249b');
+  }
+
+3.   constructor(public headerService: HeaderService) {
+	    console.log("Constructor....");
+      }
+
+4.    ngOnInit(): void {
+    /// all i said is get the data and set the local variable ....... 
+    this.headerService.getMenu().subscribe((result) => {
+      this.menu = result;
+    });
+  } // assigned the data to the menu --what i got from the remote server -> 
+
+[ {"" : "" , "" : ""} ]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
