@@ -87,9 +87,6 @@ a fundamental stuff of the parent child communication
 	
 	inthe html   {{genre}}
 
-
-
-
 Step 1 :  Define (In the child)
 @Output()
 likesChanged = new EventEmitter(); 
@@ -108,8 +105,60 @@ Step 3 in you recieving (Parent)
 Step 4  in   in the someHandleMethod ($event)
 	 handleLikesChanged(likes) {
     		this.likes = likes;
-  	}
+  	}   
 	--> {{likes}}
+
+
+
+
+Create two new components : 
+ng  g  c 
+<in the artits> (anywhere ) how many fav artits you have ) 
+artist 
+artist1 
+artitst2
+artist3
+artitst4 
+
+artist profile
+His profile to be shown here 
+i want that against each artist i want you to provide me with  (Fav) 
+
+
+
+ng g c  artist 
+ng g c  artistdetails
+
+in the artist 
+    artits = ['','']
+   selectedArtist 
+<div *ngFor="let artist of artits">
+	<div (click)=selectArtist(artist)>{{name}}</div>
+</div>
+
+<artist-details [selectedArtist]="selectedArtist" (artistFavEvent )= "handleFavArtitst($event)"></artist-details>
+@Input()
+selectedArtist 
+
+---> {{selectedArtist}} ==> B;ah bla his details 
+
+
+@Output()
+artistFavEvent = new EventEmitter(); 
+
+
+
+handleFav(){
+   this.totalFavs += 1 ; 
+   this.artistFaveEvent.emit(this.totalFavs); 
+}
+
+
+
+
+
+
+
 
 
 
