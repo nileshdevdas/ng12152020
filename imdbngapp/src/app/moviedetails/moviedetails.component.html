@@ -1,11 +1,9 @@
 <div class="card">
-    <div class="card-header">
-        Movie Details
-    </div>
-    <div class="card-body">
-        Harry Potter
-    </div>
-    <div class="card-footer">
-        footer
-    </div>
+  <div class="card-header bg-dark text-white">
+    Movie Details {{likes}}
+  </div>
+  <div class="card-body">
+      <span class="badge badge-warning">{{genre.selectedGenre}}</span>
+      <button (click)="addLikes()" class="btn btn-success">+like</button>
+  </div>
 </div>

@@ -1,13 +1,13 @@
 <div class="card">
   <div class="card-header bg-dark text-white">
-    Movie Details
+    {{likes}}
+    Parent (Movie List) <span class="badge badge-warning">{{genre.selectedGenre}}</span>
   </div>
   <div class="card-body">
-      <img
-        src="https://static.wikia.nocookie.net/harrypotter/images/7/70/Harry_Potter_and_the_Order_of_the_Phoenix.jpg">
-    Harry Potter
+    <button (click)="changeGenre('action')" class="btn btn-danger mr-2 mb-1">Action</button>
+    <button (click)="changeGenre('romance')" class="btn btn-info mr-2 mb-1">Romance</button>
+    <app-moviedetails [genre]="genre" (likesChanged)="handleLikesChanged($event)"></app-moviedetails>
   </div>
-  <div class="card-footer">
-    footer
-  </div>
+  <!-- <div class="card-footer">
+  </div> -->
 </div>

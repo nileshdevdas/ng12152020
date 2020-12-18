@@ -6,10 +6,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./movielist.component.css']
 })
 export class MovielistComponent implements OnInit {
-
+  genre: any = {};
+  likes = 0;
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  changeGenre(genre) {
+    this.genre.selectedGenre = genre;
+  }
+
+  handleLikesChanged(likes) {
+    this.likes = likes;
   }
 
 }

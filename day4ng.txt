@@ -1,0 +1,141 @@
+1. We understand what is npm 
+2. we understand what is typescript 
+3. we understand what is package.jsp 
+4. we understand what is angularcli 
+5. we understand ng new (to create a angular application) 
+6. the angular.json 
+7. app.module.ts 
+8. the component (structure) 
+9. ng serve 
+10. ng g c / ng g s  
+11. {{}} [] @ViewChild 
+12. Lifecycle init / destroy / onngInit ngAfterViewInit 
+13. we understand that () action (Even proceessing) 
+14  *ngFor is directive --->  
+15. how the component  shares data with the page and when the component change 
+	state we know it change the rending 
+16.  What is dependency injection and how services can be injected 
+17.  What is services and how the service are singletons 
+18.  what service constructors and other things will help you to create 
+	a centralize business logic 
+19.  The HttpClient Module and using the client module we know that we will 
+	be using a the call to the api ---> Which are at the server end 
+20.   we used mocky io (Mock Service) to test any mockinng based 
+	we moved our menu where to the service --> 
+	and we reteived our meu via the sevice 
+21.  We saw how to add css / js file to the system by angular.json  (scripts) 
+	and  styles
+22.  How make use of  modules --> in the section imports [] in the app.module.ts 
+23.  we also understand that the component is instance placed on a page by makein 
+	use of the <selector tag > 
+	binded the observable (internal it fires the process of publish ) 
+	each component internal has  as observqble pattern on the state 
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Angular Intercommunication :  
+Component to Component 
+Parent to Child 
+Child to Parent 
+Sibling to Sibling 
+Component to All 
+-----------------------------------------
+
+@Input 
+@Output 
+EventEmitter 
+Subject (Rxjs) 
+BehaviourialSubject 
+ReplaySubject 
+	
+	[] ---> shared  () to sharevents 
+
+	* Directive  (ng-for/ng-if) ng-if-else)
+	[]  (Attribute binding ++ DataSharing to child) 
+	{{}}  Expressions
+	[()]  two way binding 
+	()    event binding 
+	<>  element directive 
+
+MovieList --> (Genre) 
+Radio Button on my parent component 
+Fiction / War / Action /  Romance / 
+a fundamental stuff of the parent child communication 
+
+
+
+1. i created a parent component 
+	ng  g  c   movielist 
+
+2.  i created a child component 
+	ng  g c  moviedetails 
+
+
+3.  i wen in to the movielist component and i created 
+	<button (click)="handleGenre('action')"> Action</action>
+	<button (click)="handleGenre('romance')"> Romance</action>
+	<app-moviedetails [genre]="genre"></app-moviedetails>
+		//[genre] this means my moviedetails @Input() genre;
+		= genre the property in you ovie list component that 
+			changes the value on the handleGenre 
+	handleGenere(genre){
+	    this.genre = genre ; 
+	}
+	
+4.  on the moviedetails 
+	@Input ()
+	genre 
+	
+	inthe html   {{genre}}
+
+
+
+
+Step 1 :  Define (In the child)
+@Output()
+likesChanged = new EventEmitter(); 
+Step2  : the place where you want to emit is the place where you property changes 
+   <button (click)="addLikes()" class="btn btn-success">+like</button>
+   addLikes() {
+      this.likes += 1;
+      this.likesChanged.emit(this.likes);
+  }	
+Step 3 in you recieving (Parent) 
+	you will be doing a simple logic 
+    	<app-moviedetails [genre]="genre"
+		 (likesChanged)="handleLikesChanged($event)">
+	</app-moviedetails>
+	With the handling ---> 
+Step 4  in   in the someHandleMethod ($event)
+	 handleLikesChanged(likes) {
+    		this.likes = likes;
+  	}
+	--> {{likes}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
