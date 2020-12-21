@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms'
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { HeaderComponent } from './header/header.component';
@@ -12,6 +11,29 @@ import { MoviedetailsComponent } from './moviedetails/moviedetails.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ArtistsComponent } from './artists/artists.component';
 import { ArtistinfoComponent } from './artistinfo/artistinfo.component';
+import { PublisherComponent } from './publisher/publisher.component';
+import { SubscriberComponent } from './subscriber/subscriber.component';
+import { MoviespageComponent } from './moviespage/moviespage.component';
+import { WebseriespageComponent } from './webseriespage/webseriespage.component';
+import { EventspageComponent } from './eventspage/eventspage.component';
+import { ReviewspageComponent } from './reviewspage/reviewspage.component';
+import { BlogpageComponent } from './blogpage/blogpage.component';
+import { AboutuspageComponent } from './aboutuspage/aboutuspage.component';
+import { RouterModule } from '@angular/router';
+import { Route } from '@angular/compiler/src/core';
+import { OopspageComponent } from './oopspage/oopspage.component';
+/** the route configuration  */
+const routes = [
+  { path: '', component: HomeComponent },
+  { path: 'home', component: HomeComponent },
+  { path: 'events', component: EventspageComponent },
+  { path: 'movies', component: MoviespageComponent },
+  { path: 'web', component: WebseriespageComponent },
+  { path: 'reviews', component: ReviewspageComponent },
+  { path: 'blog', component: BlogpageComponent },
+  { path: 'about', component: AboutuspageComponent },
+  { path: '**', component: OopspageComponent }
+];
 
 @NgModule({
   declarations: [
@@ -23,13 +45,22 @@ import { ArtistinfoComponent } from './artistinfo/artistinfo.component';
     MovielistComponent,
     MoviedetailsComponent,
     ArtistsComponent,
-    ArtistinfoComponent
+    ArtistinfoComponent,
+    PublisherComponent,
+    SubscriberComponent,
+    MoviespageComponent,
+    WebseriespageComponent,
+    EventspageComponent,
+    ReviewspageComponent,
+    BlogpageComponent,
+    AboutuspageComponent,
+    OopspageComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    FormsModule, 
-    HttpClientModule
+    FormsModule,
+    HttpClientModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,234 @@
+Components communications :- 
+1. How and where the communications happend 
+	a) parent and child  [] (state which is provided with [] ) @Input 
+	b) child and parent  ()  + eventEmitter + emit @Output 
+	c) Sibling communication 
+
+
+
+
+
+Step 1:  ng g c publisher 
+	
+step 2 :  ng g c subscriber 
+
+
+step3   : ng g s  pubsub 
+
+step4   :  in the pubsub 
+
+	subject : new Subject() ; // behaviour Subject  Replay Subject ; it could be 			
+				any other subjectt 
+	this subject is acting a singleton :- 
+	because its initialized with the service ----> 
+
+	getSubscriber(){
+		return this.subject.asObservable();
+	}
+	
+	getPublisher(){
+		return this.subject; 	
+	}
+
+---------------------------------------------------------------------------------------------------------------------------
+You will need to inject : you will need to inject the Service in the components 
+by passing the service in the constructor of the components 
+	
+	publisher.component.ts 
+	{
+		constructor(private pubsub : PubsubService ) {
+		
+		}
+
+		publishEvent(){
+		   this.pubsub.getPublisher().next(anything);
+		}
+	}
+	
+	/// component constructor initializes and register its intent on the subject 
+	pubsub.getSubscriber().subscribe((response)=>{
+		      	this.result = response
+	});
+
+	// user clicks the publish button /// ---> 
+	// the subject recieeves the event and finds out how many subscriber 
+	// are listening --->  subject receive the event =- broadcasts it to all the 
+	/// the subscribing components 
+	in the publsiher html <button (click)="publishEvent()">Event</button>
+	
+	publishEvent(){
+		   this.pubsub.getPublisher().next(anything);
+	}
+
+	subscriber.component.ts {
+		result; // this variable the variable that bindis with my html 
+		constructor(private pubsub : PubsubService ) {
+			// let me also do a litte more 
+		      pubsub.getSubscriber().subscribe((response)=>{
+		      	this.result = response
+		      });
+		}			
+	}
+
+Parent To Child : 
+	parent ---> passes data from the parent component []
+	<app-child [data]="somedata">
+
+	at the child 
+	@Input 
+	data; 
+
+Child to Parent : 
+	child --> expose ---> 
+	@Output
+	myEvent = new EventEmitter(); 
+
+	myEvent.emit(); 
+
+
+	in the parent 
+	<mychild (myEvent)="someMethodHandler()" > Give you child  to parent
+
+Siblings : 
+	 Use RxJS --> implementation 
+	Subject / Behaviour/ ReplaySubject ---> Subject as required 
+
+The subject --> Main implemenation code in center 
+
+	2 components (1 Source / 1 Target)  + 1 Service Shared between them 
+	emit --other use subscribe 
+
+
+Scopes : 
+	Component  /// 
+	 variables ; 
+	Service 
+	  variables 
+	Session 
+	   its available to every one 
+	local Storage 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+a component scope ---> Variable is only till the component in lifecycle and only visible to
+the component unless published or passed down to the children 
+
+a service scope ==> Normally singleton base on a single access to each component 
+	will access the same instance of the variable however when you refresh 
+	you will loose the values 
+
+
+sessionScope ---> bigger then the service scope as long as browser is open or even 
+	if refresh you dont lose this ideal for storing data which is 
+	required beyon service scopes 
+
+
+local Storage scope : Caching cahed data :- 
+		any data that your application wants to read ever after the session
+	lifecycle when access with a new browser it should be localstorage 
+
+
+
+*ngIf 
+router-outlet 
+router-link 
+RouterModule 
+.forRoot / .forChild 
+child routes 
+
+
+
+
+
+# what is routing 
+Routing is a way to configure which component gets displayed at what location ? 
+using a route configuration rule the rules are simple it binds each uri to 
+component 
+
+the location where the component would get rendered is a placeholder named 
+<router-outlet>
+Objective is very clear that the requirement says if i clikc on a link i dont expect 
+to refresh a page -> but the dom model removes the old component from the placeholder 
+and places another component int hiven placeholder 
+
+which means at any given point of time for me the important part is the 
+combination of using the :- <a href='/movies'>  /movies is my route or /events is my route
+	or /webseries is my router and i want this route to display the required components 
+which inturn are nothing but pages -> in the location where desired <router-outlet>
+
+By Default routing works in a simple form by routerModule 
+	steps are simple => we would need the routing -> to be enabled 
+to have the routing to be enabled we would need the --> RouterModule 
+
+
+1.  i added the Router Module 
+2. i create a configuration for my routes 
+	what path = what component 
+
+
+
+
+Step 1:  
+in your app.module.ts --> you added a RouterModule in the imports 
+but that is not enough to do job ?
+
+Step 2 : 
+You will need to create a  configuration 
+const routes = [
+   {  path : ''  ,  component : HomeComo}
+] 
+
+
+step 3 : 
+
+RouterModule.forRoot(routes) 
+
+Every route will get configured and runnign on the <router-outlet
+
+------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+

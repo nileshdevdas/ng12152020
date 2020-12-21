@@ -8,6 +8,8 @@ import { HeaderService } from '../header.service';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
+  loggedin = false;
+
   menu;
   appname = "imdb";
   @ViewChild("mybutton")
