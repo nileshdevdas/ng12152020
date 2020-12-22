@@ -9,7 +9,6 @@ import { HeaderService } from '../header.service';
 })
 export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
   loggedin = false;
-
   menu;
   appname = "imdb";
   @ViewChild("mybutton")
@@ -22,6 +21,10 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    if (sessionStorage.getItem("token") != null) {
+      this.loggedin = true;
+    }
+
     /// all i said is get the data and set the local variable ....... 
     this.headerService.getMenu().subscribe((result) => {
       this.menu = result;

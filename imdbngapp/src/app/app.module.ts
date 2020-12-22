@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { HeaderComponent } from './header/header.component';
@@ -22,6 +22,7 @@ import { AboutuspageComponent } from './aboutuspage/aboutuspage.component';
 import { RouterModule } from '@angular/router';
 import { Route } from '@angular/compiler/src/core';
 import { OopspageComponent } from './oopspage/oopspage.component';
+import { LoginformComponent } from './loginform/loginform.component';
 /** the route configuration  */
 const routes = [
   { path: '', component: HomeComponent },
@@ -54,12 +55,13 @@ const routes = [
     ReviewspageComponent,
     BlogpageComponent,
     AboutuspageComponent,
-    OopspageComponent
+    OopspageComponent,
+    LoginformComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule,
     HttpClientModule,
+    FormsModule,
     RouterModule.forRoot(routes)
   ],
   providers: [],
