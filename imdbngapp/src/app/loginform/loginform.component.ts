@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { LoginService } from '../login.service';
 
 @Component({
   selector: 'app-loginform',
@@ -10,7 +11,7 @@ export class LoginformComponent implements OnInit {
   loggedin = false;
   username;
   password;
-  constructor(private router: Router) { }
+  constructor(private router: Router, private loginService: LoginService) { }
 
   ngOnInit(): void {
     if (sessionStorage.getItem('token')) {
@@ -20,15 +21,15 @@ export class LoginformComponent implements OnInit {
   handleLogout() {
     sessionStorage.clear();
     this.loggedin = false;
+    this.loginService.publishLoginEvents("loggedout");
   }
 
   handleLogin() {
     let userInfo: any = {};
-    // if the user logins successfully i would store data in the sessionStorage
     userInfo.username = this.username;
     userInfo.password = this.password;
-    // service or a api to check if user is valid 
     sessionStorage.setItem("token", btoa(JSON.stringify(userInfo)));
+    this.loginService.publishLoginEvents("loggedin");
     this.router.navigate(['/movies'])
   }
 }

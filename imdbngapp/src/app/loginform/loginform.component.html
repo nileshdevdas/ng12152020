@@ -1,8 +1,7 @@
-<div *ngIf="loggedin">
+<div *ngIf="loggedin;else loginForm">
   <button (click)="handleLogout()" class="btn btn-danger">Logout</button>
 </div>
-
-<div *ngIf="!loggedin" class="card" style="width: 100%; margin: auto;">
+<ng-template #loginForm class="card" style="width: 100%; margin: auto;">
   <div class="card-header">Lets Login</div>
   <div class="card-body">
     <form class="form" (ngSubmit)="handleLogin()">
@@ -27,4 +26,4 @@
       </table>
     </form>
   </div>
-</div>
+</ng-template>

@@ -1,6 +1,8 @@
 import { HttpHeaders } from '@angular/common/http';
 import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { HeaderService } from '../header.service';
+import { LoginService } from '../login.service';
 
 @Component({
   selector: 'app-header',
@@ -15,16 +17,22 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
   mybutton;
 
   buttonText = "Login";
-  buttonClass = 'btn btn-success mr-2'
-  constructor(public headerService: HeaderService) {
+  buttonClLoginServiceass = 'btn btn-success mr-2'
+  constructor(public loginService: LoginService, public headerService: HeaderService, private router: Router) {
     console.log("Constructor....");
   }
 
-  ngOnInit(): void {
+  checkToken() {
     if (sessionStorage.getItem("token") != null) {
       this.loggedin = true;
+    } else {
+      this.loggedin = false;
     }
-
+  }
+  ngOnInit(): void {
+    this.loginService.getLoggedInSubscriber().subscribe(() => {
+      this.checkToken();
+    });
     /// all i said is get the data and set the local variable ....... 
     this.headerService.getMenu().subscribe((result) => {
       this.menu = result;
@@ -42,9 +50,8 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
     console.log("After the view was initialzed");
   }
   handleClick(event) {
-    console.log(event);
-    this.buttonText = this.headerService.copyright;
-    this.buttonClass = 'btn btn-info disabled mr-2 '
+    console.log("event")
+    // navigated to the login page....
+    this.router.navigate(['/home']);
   }
 }
-
