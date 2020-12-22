@@ -8,7 +8,7 @@ import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { MovielistComponent } from './movielist/movielist.component';
 import { MoviedetailsComponent } from './moviedetails/moviedetails.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ArtistsComponent } from './artists/artists.component';
 import { ArtistinfoComponent } from './artistinfo/artistinfo.component';
 import { PublisherComponent } from './publisher/publisher.component';
@@ -24,6 +24,7 @@ import { Route } from '@angular/compiler/src/core';
 import { OopspageComponent } from './oopspage/oopspage.component';
 import { LoginformComponent } from './loginform/loginform.component';
 import { AuthGuard } from './auth.guard';
+import { LoggerInterceptor } from './logger.interceptor';
 /** the route configuration  */
 const routes = [
   { path: '', component: HomeComponent },
@@ -65,7 +66,9 @@ const routes = [
     FormsModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: LoggerInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
