@@ -1,0 +1,231 @@
+Securing Application in angular :- 
+
+Security means what :- 
+a) Cloud be a token 
+b) Could be a value stored in session storage 
+c) could ecryption when you send the data 
+d) could be protocol security of https or any related things 
+e) cloud be specific to username / password authentication 
+
+1. Forms MOdule 
+
+	*ngIf ---> Ng If the use of the  Whether to show the elements or not 
+	is based on ngIf else (Templating) 
+
+ngIf ="option"; else ; show
+=========================================================================
+I want to create a form and the form has some radio buttons and based on the 
+radio buttons i want to show some content and hide some conent and for this 
+we are going to use the activity of forms / ngif and templates 
+---------------------------------------------------------------------------------------------------------------------------------
+
+You have a form ---> The local variable of the form changes  yes 
+		you also add the data to the sessionStorage 
+		but the problem is still how will other components 
+		at the same time come to know if some is refreshed : 
+		
+	when ever i logged in -- i broadcasted a event that  login or logout happened 
+	asking the compinents to check if the token exists if yes 
+	the say logged else say logged out 
+
+
+
+1. Programatic Routing   
+	router.navigate([]);
+2.   sessionStorage 
+3.   sessionStorage ---> and Event Bdingin ---> Login ANd 
+	pub Sub
+4.  ngIf combined with ng-template 
+5.  to make use of the forms module and ngModel 
+	<form  (ngSubmit) ="handleLogin()" >
+	</form> 
+
+6.   then we decided to use 
+	sessionStorage.setItem("") 
+
+
+7.    Publish when events like login and logout happen 
+	.next() 
+	.subscribe() 
+
+8.   ngIf=xxxx ; else showatemplate 
+
+<ng-template>
+</ng-template>
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+http://localhost:4200/movies  
+is visible if someone books marks it just by hiding the links it would not make any sense 
+so to avoid the  breach we should start using the auth guard 
+
+The auth guard applies to each route and provides you with intercepted method 
+	canActivate ---> can this person activate this route 
+is what is requirement 
+Request---> For route ---> Requested ---> canActivate ---> Return true then --> it allows the 
+route if canActivate returns false the route is not activated 
+
+which clearly means that the application-> will stop responding /movies because 
+in the guard will check the authentication ...... 
+
+Step 1: 
+I create a  ng g  g --->  
+this creates a guard 
+but a guard  a method name canActivate ----> 
+	this method can return example true / false 
+	if true the the route is activte if false the route skiped 
+
+	you can decide what you wish to do in this 
+
+
+
+
+
+
+What is a interceptor : 
+An intercepetor is filter --> standin proxy ---> its applied on the client end 
+it allows you to intercept every outgoing request --> to the services ---> API's 
+http: call you make with the interceptor can interpect and add additional 
+headers --> // cookies // content --> encryption 
+
+first you will create a interceptor : 
+ng g  interceptor ---> 
+
+intercceptor needs to be activated ----> 
+
+providers : [
+   { provider :  HTTP_INTERCEPTORS ,  useClass : LoggerInterceptor , multi: true}
+]
+
+Once you provide this the interceptor will get called everytime you will have the code 
+executed for any outbound request ---> 
+How to modify a request going out -> 
+
+
+
+
+1.  components  
+	() [] {{}} [()]
+
+	@Component 
+	@ViewChild
+	@Input
+	@Output 
+	@Injectible
+	
+2.  Service 
+	Dependency Injection 
+	single ton 
+
+3.  HttpModule , FormModule < RouterModule 
+	app.module.ts 
+	imports 
+	declarations 
+	providers 
+
+4.   angular.json (style, scripts , builds) 
+
+
+5.   package.json 
+	npm install 
+
+6. ng  serve / ng build  / ng g c  ng g s  ng g g 
+	guards 
+	interceptors
+	components 
+	services 
+	
+7.   ngFor , NgIF  , ng-templates 
+
+8.  router-outlet - router.navigate()
+
+9.   with parent child communication  child and parnet EventEmitter 
+	and sibling 
+	Subject , and next and  subscribe 
+10.  sessionSorage --> Interceptors with Modified requests ---> 
+	
+11.  The  Placing of components on the  component tree --> 
+
+12.   I showed you debug you  application 
+
+13.   How deploy a build   ng build --prod ---> dist folder move your files to your fav server 
+
+14.   
+
+
+
+
+
+
+
+
+
+
+	
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
