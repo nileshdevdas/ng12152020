@@ -23,16 +23,17 @@ import { RouterModule } from '@angular/router';
 import { Route } from '@angular/compiler/src/core';
 import { OopspageComponent } from './oopspage/oopspage.component';
 import { LoginformComponent } from './loginform/loginform.component';
+import { AuthGuard } from './auth.guard';
 /** the route configuration  */
 const routes = [
   { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
-  { path: 'events', component: EventspageComponent },
-  { path: 'movies', component: MoviespageComponent },
-  { path: 'web', component: WebseriespageComponent },
-  { path: 'reviews', component: ReviewspageComponent },
-  { path: 'blog', component: BlogpageComponent },
-  { path: 'about', component: AboutuspageComponent },
+  { path: 'events', component: EventspageComponent, canActivate: [AuthGuard] },
+  { path: 'movies', component: MoviespageComponent, canActivate: [AuthGuard] },
+  { path: 'web', component: WebseriespageComponent, canActivate: [AuthGuard] },
+  { path: 'reviews', component: ReviewspageComponent, canActivate: [AuthGuard] },
+  { path: 'blog', component: BlogpageComponent, canActivate: [AuthGuard] },
+  { path: 'about', component: AboutuspageComponent, canActivate: [AuthGuard] },
   { path: '**', component: OopspageComponent }
 ];
 

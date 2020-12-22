@@ -32,11 +32,14 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
   ngOnInit(): void {
     this.loginService.getLoggedInSubscriber().subscribe(() => {
       this.checkToken();
+      console.log("Token validated..")
     });
     /// all i said is get the data and set the local variable ....... 
     this.headerService.getMenu().subscribe((result) => {
+      console.log("Menu loaded")
       this.menu = result;
     });
+    this.checkToken();
   }
 
   ngOnDestroy(): void {
