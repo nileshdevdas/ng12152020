@@ -25,6 +25,12 @@ import { OopspageComponent } from './oopspage/oopspage.component';
 import { LoginformComponent } from './loginform/loginform.component';
 import { AuthGuard } from './auth.guard';
 import { LoggerInterceptor } from './logger.interceptor';
+import { CcPipe } from './cc.pipe';
+import { PopoutDirective } from './popout.directive';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
+import { DemosModule } from './demos/demos.module';
+import { WidgetsModule } from './widgets/widgets.module';
 /** the route configuration  */
 const routes = [
   { path: '', component: HomeComponent },
@@ -58,13 +64,19 @@ const routes = [
     BlogpageComponent,
     AboutuspageComponent,
     OopspageComponent,
-    LoginformComponent
+    LoginformComponent,
+    CcPipe,
+    PopoutDirective
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    NgbModule,
+    NgxExtendedPdfViewerModule,
+    DemosModule,
+    WidgetsModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: LoggerInterceptor, multi: true }

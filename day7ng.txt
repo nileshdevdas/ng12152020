@@ -1,0 +1,209 @@
+ng g c 
+ng g c 
+ng g i 
+ng g g 
+ng g p 
+
+What is a pipe : pipe is desired transformer to tranform data from on format to other 
+format pipe are same as one what we use in linux 
+
+	ps -ef | grep java 
+
+	this |  the standing bar acts as the pipe symbol 
+	because of this we need to close on the understand any output from 
+	one command becomes the input the other command 
+	a | b | c -- output of a becomes input of b and output of b becomes input c 
+That's how piping works 
+
+Again a pipe is also a class the difference in pipe and component 
+pipe only acts on the data the component complete identity -- 
+pipe is resuable transformed 
+
+
+
+
+What is a directive :- 
+A directive is either 
+	a) Element 
+	b) Attribute 
+	c) class (attribute class="")
+
+what does a directive do 
+The job of the directive is reusable elemet 
+	<router-outlet></router-outlet> (Element) based directive 
+	<ng-template> </ng-template> (Element) based directive 
+
+	ngIf/ngFor ---> These attribute based directive 
+	<div *ngIf="">
+	</div>
+
+*** least used 
+Then the last one which is class based directive 
+	[class]="directiveName"
+
+ selector: 'appPopout'
+
+the above selector decides what is you directive type 
+whether a its  selector for attribute , element , class 
+
+element :    selector: 'appPopout'   <appPoput>
+attribute:  selector: '[appPopout]'  <div appPoput>
+class:  selector: '.appPopout'         <div class="appPoput">
+
+
+Before we go to modules 
+
+1. component 
+2. pipe 
+3. service 
+4. directive 
+5. subject 
+6. ngIf / ngFor 
+7. ng-template 
+8. router / router-outlets router-link 
+9. [] attribute binding 
+10 () event binding 
+11. {{}} 
+12. what dependecny injection 
+13. interceptors 
+14. gaurds 
+15. attribute base directives  / class based directive / element based directives 
+16. npm install / package.json 
+17. ng cli / ng add / ng g c / ng g s  / ng ...  ng build 
+18. angular.json and understand how angular json behaves 
+19. adding styles and scripts if you wish to add to your project 
+20. debugging the applications from browser 
+21. augury  configuratio 
+22. http module 
+23. forms modules 
+24. [(ngModel)]= binding the model 
+25.  EventEmitter / Subject / Pubsub and parent child child parent sibling communications 
+26. HostListeners 
+27. @Input  / @Output / @ViewChild 
+28. ElementRef and nativeElement combinations 
+29.  #  id for @ViewInjection 
+30.  Lifecycle of the component 
+	constructors 
+	onInit 
+	OnDestroy 
+	OnNgAfterViewInit 
+	you understand that this is the main place where you can decide 
+	you compoent data structure 
+31.  .subscribe() method 
+32.  what is type script tsc compilation and trasnpilation 
+33.  u understand how the application app.module.ts is built 
+	delcartions 
+	providers 
+	imports 
+34.  the  way of using boostrap or jquery in your code however we avoided using 
+	any javascript in the angular and we stick to the angular version  type script 
+35.  use of visual studio code to make of the application development 
+38.  there are mulitiple ready made modules in the market you can use 	
+	ngx-boostrap and 
+
+39. what are modules and can i create my own modules 
+	modules a container for containing the modular  component 
+	a module can contain 
+	a) directive
+	b) component 
+	c) pipe 
+	e) service 
+	f)  intercepors 
+	g)  classes 
+
+However : if you want to use a module and its dependencies it mandatory that you 
+export the components for others to use example if you create a module for your self 
+	utilmodule : 
+	    contains a component <app-hello>
+		and now you wish to add the component  to the other module 
+		want to use in the root module 
+		its important that the module exported and imported by the 
+		concerned use 
+
+
+Module is a class with demos.module.ts 
+
+@NgModule({
+ 	// all the components that you declare in this module 
+	 declarations: [HelloComponent, Hello2Component],
+	// all the modules that you depend on 
+ 	imports : [],
+	// all the modules components that you want others to use 
+	exports : []
+})
+class DemoModule {
+}
+
+
+if you dont exports others cannot use it and import it ...... 
+
+
+
+
+
+angular material 
+ionic and cordova --> Allows you to convert the application from angular to mobile apps 
+
+1. ---> Http ---> CORS and Security 
+
+Whenever you make a call to the server 
+
+	
+
+	http://localhost:4200/---> http://abc.com/test/myapi 
+
+	CORS  (Cross Origin Request Sharing) 
+	We have to  understand that the service has to support cors enable mennt 
+	to the given  ip /url/ whatever 
+
+
+	MEAN Stack 
+	M-> Mongo 
+	E -> Epress 
+	A -> Angular 
+	N -> NodeJS 
+
+	MERN Stack 
+	M-> Mongo 
+	E -> Express 
+	R --> React 
+	N --> node js 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

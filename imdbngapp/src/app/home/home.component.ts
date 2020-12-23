@@ -8,7 +8,16 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
   constructor(private router: Router) { }
-
+  welcomeNote = "welcome note from the ceo";
+  registrationDate = new Date();
+  users = [{ 'username': 'nilesh' }, { 'demo': 'demo' }]
+  images = [944, 1011, 984].map((n) => `https://picsum.photos/id/${n}/900/500`);
+  time = { hour: 13, minute: 30 };
+  model = {
+    left: true,
+    middle: false,
+    right: false
+  };
   ngOnInit(): void {
   }
 
